@@ -62,6 +62,7 @@ TinyLLM is a compact language model (512 hidden dim, 12 layers, 8 heads) designe
 | Model size            | Parameters           | **66.73M**               |
 | Model size            | FP32 checkpoint size | **266.91 MB**            |
 | Hardware              | Training device      | 24GB M4 Mac Mini (MPS)   |
+| Inference             | Generation speed     | **103.4 tok/s** (MPS)    |
 
 ### Evaluation Results
 
@@ -84,6 +85,22 @@ The 6 failure cases (6.06%) fall into specific categories:
 6. **Regex patterns** (1 case): Character class syntax
 
 All failures involve the model stopping early (EOS token) rather than generation errors, suggesting training data augmentation opportunities.
+
+### Inference Performance
+
+TinyLLM is designed to run efficiently on consumer hardware. Here is the measured generation throughput on a 24GB M4 Mac Mini (MPS):
+
+```
+Total tokens generated: 1280
+Total time:             12.38 s
+Tokens per second:      103.4 tok/s
+Time per token:         9.67 ms
+```
+
+**Inference throughput**: ~103 tokens/second  
+**Hardware**: Apple Silicon M4 (24GB unified memory)
+
+This performance shows that TinyLLM can generate commands nearly instantly for interactive CLI agents, local assistants, or embedded tools.
 
 ## 💡 Why This Project Matters
 
