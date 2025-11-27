@@ -53,15 +53,15 @@ TinyLLM is a compact language model (512 hidden dim, 12 layers, 8 heads) designe
 
 ### 📊 Quantitative Results
 
-| Stage               | Metric                      | Value                    |
-|---------------------|-----------------------------|--------------------------|
-| Pretraining        | Final loss                  | **3.59**                 |
-| Pretraining        | Tokens processed            | **204.8M**                |
-| Fine-tuning (SFT)  | Train accuracy              | ~98%                     |
-| Held-out eval      | Exact match                 | **93.94%** (93/99)       |
-| Model size         | Parameters                  | **66.73M**                |
-| Model size         | FP32 checkpoint size        | **266.91 MB**             |
-| Hardware           | Training device             | 24GB M4 Mac Mini (MPS)   |
+| Stage                 | Metric               | Value                    |
+|-----------------------|----------------------|--------------------------|
+| Pretraining           | Final loss           | **3.59**                 |
+| Pretraining           | Tokens processed     | **204.8M**               |
+| Fine-tuning (SFT)     | Steps                | **2,000**                |
+| Held-out evaluation   | Exact match          | **93.94%** (93/99)       |
+| Model size            | Parameters           | **66.73M**               |
+| Model size            | FP32 checkpoint size | **266.91 MB**            |
+| Hardware              | Training device      | 24GB M4 Mac Mini (MPS)   |
 
 ### Evaluation Results
 
@@ -347,7 +347,7 @@ If you use this code in your research, please cite:
 ```bibtex
 @software{tiny_llm,
   title = {TinyLLM: A Minimal Yet Production-Grade Language Model Stack},
-  author = {Your Name},
+  author = {Dukes, Geddy},
   year = {2025},
   url = {https://github.com/Geddydukes/tiny_llm}
 }
