@@ -8,13 +8,31 @@ TinyLLM is a compact language model (512 hidden dim, 12 layers, 8 heads) designe
 
 ### Key Results
 
-- **Pretraining**: 50,000 steps on 133M tokens from English Wikipedia
+- **Pretraining**: 50,000 steps (~204M tokens seen) from 133 Wikipedia shards
 - **Fine-tuning**: 2,000 steps on 2,302 instruction-command pairs
 - **Test Accuracy**: 93.94% (93/99 exact matches)
-- **Model Size**: ~15M parameters
+- **Model Size**: 66.73M parameters (266.91 MB FP32)
 - **Training Time**: ~13 hours pretraining + ~4 minutes fine-tuning on Apple Silicon
 
 ## 🏗️ Architecture
+
+### Model Architecture Diagram
+
+```
+<instruction> text
+      ↓
+[ Tokenizer (SentencePiece) ]
+      ↓
+┌───────────────────────────────┐
+│  TinyLLM Transformer (12L)    │
+│   • RoPE                      │
+│   • Multi-head Attention      │
+│   • SwiGLU FFN                │
+│   • RMSNorm                   │
+└───────────────────────────────┘
+      ↓
+<command> tokens
+```
 
 ### Model Components
 
@@ -32,6 +50,18 @@ TinyLLM is a compact language model (512 hidden dim, 12 layers, 8 heads) designe
 - Standard tokens: `<pad>`, `<bos>`, `<eos>`, `<unk>`
 
 ## 📊 Performance
+
+### 📊 Quantitative Results
+
+| Stage               | Metric                      | Value                    |
+|---------------------|-----------------------------|--------------------------|
+| Pretraining        | Final loss                  | **3.59**                 |
+| Pretraining        | Tokens processed            | **204.8M**                |
+| Fine-tuning (SFT)  | Train accuracy              | ~98%                     |
+| Held-out eval      | Exact match                 | **93.94%** (93/99)       |
+| Model size         | Parameters                  | **66.73M**                |
+| Model size         | FP32 checkpoint size        | **266.91 MB**             |
+| Hardware           | Training device             | 24GB M4 Mac Mini (MPS)   |
 
 ### Evaluation Results
 
@@ -54,6 +84,31 @@ The 6 failure cases (6.06%) fall into specific categories:
 6. **Regex patterns** (1 case): Character class syntax
 
 All failures involve the model stopping early (EOS token) rather than generation errors, suggesting training data augmentation opportunities.
+
+## 💡 Why This Project Matters
+
+TinyLLM demonstrates that:
+
+- **You don't need massive GPUs to train an LLM end-to-end** — Trained entirely on a Mac Mini with 24GB unified memory
+- **Small, domain-specific LLMs can achieve high accuracy** — 93.94% exact-match accuracy with just 66.73M parameters
+- **Training infrastructure matters as much as model size** — Efficient data pipelines enable training on consumer hardware
+- **Modern LLM techniques scale down effectively** — RoPE, RMSNorm, and SwiGLU work well even at small scales
+- **Building your own stack teaches you more than using off-the-shelf models** — Deep understanding of every component from tokenization to inference
+
+This project proves that with careful engineering, domain-specific language models can be trained from scratch on accessible hardware while maintaining production-grade quality.
+
+## 🧠 Skills Demonstrated
+
+- **Custom tokenizer training** — SentencePiece with domain-specific special tokens
+- **Streaming dataset pipelines** — HuggingFace datasets → efficient numpy shards
+- **Transformer architecture implementation** — Built from scratch with modern components
+- **Training loop engineering** — MPS optimization, checkpointing, learning rate scheduling
+- **Instruction tuning (SFT)** — Supervised fine-tuning with proper loss masking
+- **Loss masking and formatting strategies** — Only command portion contributes to loss
+- **Evaluation harness development** — Comprehensive accuracy testing framework
+- **Error analysis and model debugging** — Systematic failure case analysis
+- **End-to-end ML pipeline** — From raw data to deployed model
+- **Production-ready code** — Type hints, error handling, modular design
 
 ## 🚀 Quick Start
 
@@ -239,7 +294,7 @@ During fine-tuning, only the command portion (after `<command>`) contributes to 
 - **Streaming**: Wikipedia data is streamed directly from HuggingFace datasets
 - **Efficient Storage**: Tokenized sequences stored as numpy arrays (`.npy` shards)
 - **Memory-Mapped**: Shards loaded with memory mapping for efficient access
-- **Low Disk Usage**: ~300MB for 133M tokens
+- **Low Disk Usage**: ~300MB for 133 shards (~133M tokens)
 
 ## 📈 Training Curves
 
