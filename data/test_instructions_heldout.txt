@@ -1,0 +1,99 @@
+Instruction: List all files in the current directory that are not owned by the current user.
+Instruction: Display the inode number of files in the current directory.
+Instruction: Remove duplicate lines from a sorted file and save output to a new file.
+Instruction: Recursively search for the string "error" in all log files and print the filename.
+Instruction: Show the total size of memory pages in bytes.
+Instruction: List all currently defined shell functions.
+Instruction: Run a python script and drop into the debugger on failure.
+Instruction: Start a simple HTTP server on port 8000 using Python.
+Instruction: Show the list of open files for a specific user.
+Instruction: Check the expiration date of a local user password.
+Instruction: Display the routing table in numeric format.
+Instruction: Set the system date and time manually.
+Instruction: Create a hard link to a file.
+Instruction: Find files modified exactly 10 days ago.
+Instruction: Change the priority of a running process using its name.
+Instruction: Show filesystem disk space usage in JSON format (if supported).
+Instruction: Display the status of the network interfaces using nmcli.
+Instruction: Connect to a wifi network using nmcli.
+Instruction: Block an IP address using iptables.
+Instruction: List all rules in iptables with line numbers.
+Instruction: Enable the firewalld service to start on boot.
+Instruction: Reload the firewall configuration without dropping connections.
+Instruction: Show the history of last logged in users and system reboots.
+Instruction: Record a terminal session to a file.
+Instruction: Stop recording a terminal session.
+Instruction: Display the contents of a tar file without extracting.
+Instruction: Extract a specific file from a tarball.
+Instruction: Run a command only if the previous command failed.
+Instruction: Run a command only if the previous command succeeded.
+Instruction: Repeat the last command executed (bang bang).
+Instruction: Reuse the last argument of the previous command.
+Instruction: Search the history for a command starting with "ssh".
+Instruction: Execute a command and keep it running after the shell closes using disown.
+Instruction: Show the status of a software RAID array.
+Instruction: Create a new ext4 filesystem on a partition.
+Instruction: Label a partition.
+Instruction: Check file system consistency for XFS.
+Instruction: Display the amount of free and used memory in the system.
+Instruction: Show the process tree with PIDs.
+Instruction: Find the path of a command and its manual page.
+Instruction: Show the default permission mask for new files.
+Instruction: Set the default permission mask to 022.
+Instruction: Convert tab characters to spaces in a file.
+Instruction: Convert spaces to tabs in a file.
+Instruction: Print the first 10 bytes of a file.
+Instruction: Print the last 10 bytes of a file.
+Instruction: Reverse the characters in each line of a file.
+Instruction: Count the number of fields in a CSV file (assuming comma delimiter).
+Instruction: Print the length of the longest line in a file.
+Instruction: Remove all color codes/escape sequences from text.
+Instruction: Watch the system log for "sudo" entries in real-time.
+Instruction: List all files in the directory sorted by file extension.
+Instruction: Display the calendar for the current year.
+Instruction: Show the Julian day of the year (1-366).
+Instruction: Generate a random number between 0 and 32767.
+Instruction: Create a sequence of numbers from 10 to 1 counting down.
+Instruction: Read user input into a variable.
+Instruction: Check if a variable is set or empty.
+Instruction: Perform integer arithmetic (add 5 and 10).
+Instruction: Send an email with a subject and body from the command line.
+Instruction: List the contents of an RPM package file.
+Instruction: Extract a cpio archive.
+Instruction: List files opened by a specific process ID.
+Instruction: Find files with names containing non-ASCII characters.
+Instruction: Change the modification time of a file to the current time.
+Instruction: Compare two sorted files line by line.
+Instruction: Display only lines common to both files.
+Instruction: Fold long lines to a width of 80 characters.
+Instruction: Merge multiple PDF files into one.
+Instruction: Get the dimensions of an image file.
+Instruction: Resize an image to 50% of its original size.
+Instruction: Create a QR code from text.
+Instruction: Show the dependencies of a Node.js project.
+Instruction: Update npm to the latest version.
+Instruction: List all docker networks.
+Instruction: Inspect the details of a docker volume.
+Instruction: Remove all stopped containers, unused networks, and dangling images.
+Instruction: Show the history of layers in a docker image.
+Instruction: Format a Go source file.
+Instruction: Run a specific test case in Go.
+Instruction: List all active systemd timers.
+Instruction: Analyze the system boot time.
+Instruction: Show the critical chain of services during boot.
+Instruction: Follow the logs of a specific systemd unit.
+Instruction: List all hardware devices in a tree view.
+Instruction: Show information about the CPU caches.
+Instruction: Check for available entropy on the system.
+Instruction: Generate a secure password using urandom.
+Instruction: List all PCI devices with their kernel drivers.
+Instruction: Show the status of the bluetooth service.
+Instruction: Scan for available bluetooth devices.
+Instruction: Copy a directory preserving links and attributes.
+Instruction: Move files matching a pattern to a directory.
+Instruction: Create a set of directories {dir1, dir2, dir3}.
+Instruction: Download a file and print it to standard output.
+Instruction: Send a GET request with a specific user agent.
+Instruction: Limit the bandwidth of a download to 100k.
+Instruction: Ignore case when sorting a file.
+Instruction: Sort a file based on the second column.

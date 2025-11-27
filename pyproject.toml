@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tiny-llm"
+version = "0.1.0"
+description = "Tiny yet modern language model stack with tokenizer, data prep, and training scripts."
+readme = "README.md"
+authors = [{ name = "tiny-llm" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.2",
+    "numpy>=1.26",
+    "tqdm>=4.66",
+    "sentencepiece>=0.1.99",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6",
+    "pytest>=8.1",
+]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "B", "UP", "N", "ANN", "C4", "SIM", "ERA", "RUF"]
+ignore = ["ANN101", "ANN102"]

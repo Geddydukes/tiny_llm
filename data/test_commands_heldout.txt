@@ -1,0 +1,99 @@
+find . ! -user $(whoami)
+ls -i
+uniq sorted_file.txt unique_file.txt
+grep -rl "error" /var/log/*.log
+getconf PAGESIZE
+declare -f
+python3 -m pdb script.py
+python3 -m http.server 8000
+lsof -u username
+chage -l username
+netstat -rn
+date -s "2 Oct 2023 18:00:00"
+ln source_file link_name
+find . -mtime 10
+renice -n 5 -p $(pgrep process_name)
+lsblk -J
+nmcli device status
+nmcli dev wifi connect "SSID_NAME" password "WIFI_PASSWORD"
+iptables -A INPUT -s 192.168.1.100 -j DROP
+iptables -L --line-numbers
+systemctl enable firewalld
+firewall-cmd --reload
+last
+script session.log
+exit
+tar -tf archive.tar
+tar -xf archive.tar filename.txt
+command1 || command2
+command1 && command2
+!!
+!$
+!ssh
+command & disown
+cat /proc/mdstat
+mkfs.ext4 /dev/sdb1
+e2label /dev/sdb1 "DataDisk"
+xfs_repair /dev/sdb1
+vmstat -s
+pstree -p
+whereis grep
+umask
+umask 022
+expand file.txt > file_spaces.txt
+unexpand file_spaces.txt > file_tabs.txt
+head -c 10 filename.txt
+tail -c 10 filename.txt
+rev filename.txt
+awk -F, '{print NF}' file.csv | head -1
+wc -L filename.txt
+sed 's/\x1b[[0-9;]*m//g' logfile.txt
+tail -f /var/log/auth.log | grep sudo
+ls -lX
+cal -y
+date +%j
+echo $RANDOM
+seq 10 -1 1
+read -p "Enter your name: " username
+[ -z "$VAR" ] && echo "Empty"
+expr 5 + 10
+echo "Body text" | mail -s "Subject" user@example.com
+rpm -qlp package.rpm
+cpio -idv < archive.cpio
+lsof -p 1234
+find . -name "[^ -~]"
+touch -m filename.txt
+comm file1.txt file2.txt
+comm -12 file1.txt file2.txt
+fold -w 80 filename.txt
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=merged.pdf file1.pdf file2.pdf
+identify -format "%wx%h" image.jpg
+convert image.jpg -resize 50% small.jpg
+qrencode -o qr.png "Hello World"
+npm view . dependencies
+npm install -g npm@latest
+docker network ls
+docker volume inspect volume_name
+docker system prune
+docker history image_name
+gofmt -w main.go
+go test -run TestName
+systemctl list-timers
+systemd-analyze
+systemd-analyze critical-chain
+journalctl -u unit_name -f
+lshw
+lscpu | grep cache
+cat /proc/sys/kernel/random/entropy_avail
+tr -dc A-Za-z0-9 </dev/urandom | head -c 16 ; echo ''
+lspci -k
+systemctl status bluetooth
+hcitool scan
+cp -av source_dir destination_dir
+mv *.jpg images/
+mkdir dir{1,2,3}
+curl -L http://example.com/file.txt
+curl -A "Mozilla/5.0" http://example.com
+wget --limit-rate=100k http://example.com/largefile.iso
+sort -f filename.txt
+sort -k 2 filename.txt

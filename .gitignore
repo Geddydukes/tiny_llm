@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# Model files
+*.model
+*.vocab
+*.pt
+*.pth
+*.ckpt
+
+# Data files
+data/wiki_shards/
+data/tokenizer_corpus.txt
+data/cli_sft.jsonl
+
+# Checkpoints
+checkpoints/
+
+# Results
+results/
+
+# Logs
+*.log
+nohup.out
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
